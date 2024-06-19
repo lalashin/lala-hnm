@@ -1,38 +1,187 @@
-.App {
-  text-align: center;
+/* 버튼 초기화*/
+button {border: 0;}
+
+.top-menu{
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 30px 8px 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.search-box {
+    border-bottom: 1px solid #000;
+    
+    /* position: absolute;
+    top: 10%;
+    transform: translateY(-50%);
+    right: 20px; */
+    
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search-box input {
+    border: none;
+    margin-left: 5px;
+    height: 18px;
+
+}
+.search-box input::placeholder {
+    font-size: 14px;
+}
+.login-button {
+    display: flex;
+    justify-content: flex-end;
+   
+    cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.login-txt {
+    margin-left: 5px;
+    font-size: 12px;
+    line-height: 2;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-section {
+    display: flex;
+    justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mGNB {
+    display: none;
+}
+
+
+.menu-area {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.menu-area button{
+    display: none;
+}
+.menu-list {
+    display: flex;
+    list-style-type: none;
+    padding-top: 20px;
+}
+
+.menu-list li {
+    /* padding:10px ; */
+    text-decoration: none;
+    color:black;
+    margin: 0px 10px;
+    padding: 3px 8px;
+    font-weight: bold;
+}
+
+
+.product-card {
+    cursor: pointer;
+}
+
+.product-card .thum {
+    width: 100%;
+    overflow: hidden;
+}
+.product-card .thum img {
+    width: 100%;
+}
+
+.product-card img:hover {
+    transform: scale(110%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.product-card img:not(:hover) {
+    transform: scale(100%);
+    transition: transform 0.7s ease-in-out;
+}
+
+.login-area {
+    display: flex;
+    justify-content: center;
+}
+
+.login-form {
+    width: 40em;
+}
+
+.product-img{
+    display: flex;
+
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+    .mGNB {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 50px;
+        height: 50px;
+        z-index: 20;
+    }
+
+    .menu-area {
+        display: none;
+        position: fixed;
+        inset: 0px; 
+        background-color: rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transition: all 0.3s ease 0s;
+        z-index: 100;
+    }
+
+    .menu-area.active {
+        display: block;
+        opacity: 1;
+    }
+    .menu-area button{
+        display: block;
+    }
+    
+
+    .menu-area ul {
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        
+        width: 70%;
+        height: 100vh;
+        background: #fff;
+        transform: translateX(-1000px);
+        transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);       
+        
+    }
+    .menu-area.active ul {
+        transform: translateX(0);
+
+    }
+    .menu-area ul li {
+        position: relative;
+        width: 40%;
+        margin: 10px 0px;
+        padding: 3px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease 0s;
+    }
+
+    .menu-area button {
+        position: absolute;
+        top: 0;
+        right: calc(30% - 40px);
+        width: 40px;
+        height: 40px;
+        /* border-radius: 50%; */
+        background-color: rgba(255, 255, 255, 1);
+        color: #000;
+    }
+
+  
 }
